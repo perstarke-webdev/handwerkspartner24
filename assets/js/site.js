@@ -224,8 +224,11 @@
       try {
         const response = await fetch(endpoint, {
           method: "POST",
-          headers: { Accept: "application/json" },
-          body: new FormData(form),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(new FormData(form)).toString(),
         });
 
         if (!response.ok) throw new Error("Formular konnte nicht gesendet werden.");

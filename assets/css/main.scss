@@ -96,11 +96,16 @@ html {
   background: var(--color-ivory);
 }
 
-html.has-nav-open,
 html.has-lightbox-open {
   overflow: hidden;
 }
 
+/* Scroll lock for the open mobile nav (mirrors the kroener-starke approach).
+   Applying overflow:hidden to the BODY — while <html> keeps its default
+   overflow — propagates to the viewport and locks page scrolling without
+   turning the body into its own scroll container. The sticky header therefore
+   stays pinned and the page never shifts, regardless of the scroll position
+   when the menu is opened. */
 html.has-nav-open body {
   overflow: hidden;
 }
@@ -2265,17 +2270,17 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 }
 
 .form__checkbox {
-  display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
+  display: flex;
+  align-items: flex-start;
   gap: 0.6rem;
-  align-items: start;
   font-weight: 600;
   line-height: 1.45;
 }
 
 .form__checkbox input {
+  flex: 0 0 auto;
   width: 18px;
-  min-height: 18px;
+  height: 18px;
   margin-top: 0.18rem;
 }
 
@@ -2619,8 +2624,10 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   z-index: 3;
   top: max(18px, env(safe-area-inset-top));
   right: max(18px, env(safe-area-inset-right));
-  display: inline-grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
   width: 44px;
   height: 44px;
   border: 1px solid oklch(98.5% 0.008 80 / 0.3);
@@ -2642,8 +2649,10 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   z-index: 3;
   top: 50%;
   transform: translateY(-50%);
-  display: inline-grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
   width: 48px;
   height: 48px;
   border: 1px solid oklch(98.5% 0.008 80 / 0.3);
@@ -2671,6 +2680,13 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 
 .lightbox__nav--next {
   right: max(16px, env(safe-area-inset-right));
+}
+
+/* Safari renders inline SVG on the text baseline; force block so the icon
+   sits dead-centre inside the round lightbox controls. */
+.lightbox__close .icon,
+.lightbox__nav .icon {
+  display: block;
 }
 
 [data-reveal] {
@@ -3084,7 +3100,7 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
     font-size: 2.1rem;
     line-height: 1.1;
     overflow-wrap: break-word;
-    hyphens: auto;
+    hyphens: manual;
   }
 
   h2 {
@@ -3098,7 +3114,7 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
     max-width: 100%;
     text-wrap: wrap;
     overflow-wrap: break-word;
-    hyphens: auto;
+    hyphens: manual;
   }
 
   .lead {

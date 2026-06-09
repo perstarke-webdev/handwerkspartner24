@@ -13,7 +13,7 @@
       <div class="project-card__images{% if project.images.size == 1 %} project-card__images--single{% endif %}" aria-label="Bilder zu {{ project.title }}">
         {% for image in project.images %}
           <button class="project-thumb" type="button" aria-label="{{ image.alt | escape }} vergrössern" data-lightbox-src="{{ image.src | relative_url }}" data-lightbox-alt="{{ image.alt | escape }}" data-lightbox-caption="{{ project.title | escape }}">
-            <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" loading="eager" decoding="async">
+            <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
           </button>
         {% endfor %}
       </div>
