@@ -279,12 +279,31 @@
     }
   };
 
-  const openLightbox = (trigger) => {
-    if (!lightbox || !lightboxImage) return;
-    lastLightboxTrigger = trigger;
+  const lightboxPrev = document.querySelector("[data-lightbox-prev]");
+  const lightboxNext = document.querySelector("[data-lightbox-next]");
+  let lightboxGroup = [];
+  let lightboxIndex = 0;
+
+  const renderLightboxImage = () => {
+    const trigger = lightboxGroup[lightboxIndex];
+    if (!trigger || !lightboxImage) return;
     lightboxImage.src = trigger.dataset.lightboxSrc || "";
     lightboxImage.alt = trigger.dataset.lightboxAlt || "";
     if (lightboxCaption) lightboxCaption.textContent = trigger.dataset.lightboxCaption || "";
+    const multiple = lightboxGroup.length > 1;
+    if (lightboxPrev) lightboxPrev.hidden = !multiple;
+    if (lightboxNext) lightboxNext.hidden = !multiple;
+  };
+
+  const openLightbox = (trigger) => {
+    if (!lightbox || !lightboxImage) return;
+    lastLightboxTrigger = trigger;
+    const groupRoot = trigger.closest(".project-card__images");
+    lightboxGroup = groupRoot
+      ? Array.from(groupRoot.querySelectorAll("[data-lightbox-src]"))
+      : [trigger];
+    lightboxIndex = Math.max(0, lightboxGroup.indexOf(trigger));
+    renderLightboxImage();
     lightbox.hidden = false;
     doc.classList.add("has-lightbox-open");
     if (lightboxClose) lightboxClose.focus();
@@ -298,18 +317,29 @@
     if (lastLightboxTrigger) lastLightboxTrigger.focus();
   };
 
+  const stepLightbox = (delta) => {
+    if (lightboxGroup.length < 2) return;
+    lightboxIndex = (lightboxIndex + delta + lightboxGroup.length) % lightboxGroup.length;
+    renderLightboxImage();
+  };
+
   document.querySelectorAll("[data-lightbox-src]").forEach((trigger) => {
     trigger.addEventListener("click", () => openLightbox(trigger));
   });
 
   if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+  if (lightboxPrev) lightboxPrev.addEventListener("click", () => stepLightbox(-1));
+  if (lightboxNext) lightboxNext.addEventListener("click", () => stepLightbox(1));
   if (lightbox) {
     lightbox.addEventListener("click", (event) => {
       if (event.target === lightbox) closeLightbox();
     });
   }
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && lightbox && !lightbox.hidden) closeLightbox();
+    if (!lightbox || lightbox.hidden) return;
+    if (event.key === "Escape") closeLightbox();
+    else if (event.key === "ArrowLeft") stepLightbox(-1);
+    else if (event.key === "ArrowRight") stepLightbox(1);
     trapLightboxFocus(event);
   });
 

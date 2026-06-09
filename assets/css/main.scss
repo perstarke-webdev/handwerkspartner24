@@ -541,10 +541,10 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   border: 1px solid color-mix(in oklch, var(--color-rust) 22%, var(--color-line));
   border-radius: 12px;
   background: var(--color-paper);
-  transition: background-color var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out-quart);
+  transition: background-color 0.35s ease-in-out,
+    border-color 0.35s ease-in-out,
+    box-shadow 0.35s ease-in-out,
+    transform 0.35s ease-in-out;
 }
 
 .brand-mark__image {
@@ -552,17 +552,19 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   width: 34px;
   height: 34px;
   object-fit: contain;
-  transition: filter 180ms ease;
+  transition: filter 0.35s ease-in-out;
 }
 
 .site-logo__text {
   font-size: 1.125rem;
   font-weight: 800;
   letter-spacing: 0;
+  transition: color 0.35s ease-in-out;
 }
 
 .site-logo__text span {
   color: var(--color-rust);
+  transition: color 0.35s ease-in-out;
 }
 
 .site-logo:hover,
@@ -587,6 +589,21 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 .site-footer__logo:hover .brand-mark__image,
 .site-footer__logo:focus-visible .brand-mark__image {
   filter: saturate(1.12) contrast(1.04);
+}
+
+.site-logo:hover .site-logo__text,
+.site-logo:focus-visible .site-logo__text {
+  color: var(--color-rust);
+}
+
+.site-logo:hover .site-logo__text span,
+.site-logo:focus-visible .site-logo__text span {
+  color: var(--color-ink);
+}
+
+.site-footer__logo:hover .site-logo__text span,
+.site-footer__logo:focus-visible .site-logo__text span {
+  color: var(--color-ivory);
 }
 
 .site-nav ul {
@@ -937,7 +954,7 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   min-height: 112px;
   border-top: 1px solid var(--color-line);
   border-bottom: 1px solid var(--color-line);
-  background: var(--color-paper);
+  background: var(--color-stone);
 }
 
 .trust-strip__inner {
@@ -1090,6 +1107,15 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   aspect-ratio: 16 / 10;
 }
 
+@media (min-width: 621px) {
+  .services-grid .service-card--featured + .service-card .service-card__media,
+  .services-grid--home .service-card--featured + .service-card .service-card__media {
+    aspect-ratio: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+}
+
 .service-card__media img {
   width: 100%;
   height: 100%;
@@ -1124,16 +1150,6 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   transition: background-color var(--duration-base) var(--ease-out),
     color var(--duration-base) var(--ease-out),
     transform var(--duration-base) var(--ease-out);
-}
-
-.service-card--featured .service-card__icon {
-  background: var(--color-rust-wash);
-  color: var(--color-rust-dark);
-}
-
-.service-card:nth-child(3n) .service-card__icon {
-  background: var(--color-steel-wash);
-  color: var(--color-steel);
 }
 
 .service-card:hover .service-card__icon,
@@ -1183,18 +1199,14 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 
 .split--offer {
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
-  align-items: stretch;
-}
-
-.split--offer .split__copy,
-.split--offer .split__panel {
-  height: 100%;
+  align-items: start;
+  max-width: 980px;
+  margin-inline: auto;
 }
 
 .split--offer .split__panel {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .split__copy,
@@ -1223,7 +1235,36 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 
 .split__panel,
 .service-detail__list {
-  padding: var(--space-md);
+  padding: 0;
+  overflow: hidden;
+}
+
+.split__panel > h3,
+.service-detail__list > h3 {
+  margin: 0;
+  padding: 1.15rem 1.4rem;
+  background: var(--color-rust);
+  color: var(--color-ivory);
+  font-size: 1.3rem;
+  line-height: 1.22;
+}
+
+.split__panel > .check-list,
+.service-detail__list > .check-list {
+  margin: 0;
+  padding: 0.35rem 1.4rem;
+  gap: 0;
+}
+
+.split__panel > .check-list li,
+.service-detail__list > .check-list li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.split__panel > .check-list li:last-child,
+.service-detail__list > .check-list li:last-child {
+  border-bottom: 0;
 }
 
 .check-list {
@@ -1262,6 +1303,10 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   min-width: 0;
   padding: var(--space-md);
   background: var(--color-ink-soft);
+  transition: border-color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 .process__step span {
@@ -1286,6 +1331,13 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   color: oklch(98.5% 0.008 80 / 0.72);
   font-size: var(--text-small);
   line-height: 1.62;
+}
+
+.process__step:hover,
+.process__step:focus-within {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 14px 30px oklch(0% 0 0 / 0.5);
+  z-index: 1;
 }
 
 .project-grid {
@@ -1335,6 +1387,7 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 }
 
 .project-card__copy p:not(.project-card__meta) {
+  margin-top: 0.55rem;
   color: var(--color-muted);
   line-height: 1.55;
 }
@@ -2210,7 +2263,8 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 }
 
 .legal-content h2 {
-  margin-top: 2rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0.65rem;
   font-size: 1.75rem;
 }
 
@@ -2333,6 +2387,11 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   text-decoration-thickness: 2px;
 }
 
+.site-footer__col a[aria-current="page"] {
+  color: var(--color-rust-soft);
+  font-weight: 700;
+}
+
 .site-footer__logo:hover,
 .site-footer__logo:focus-visible {
   color: var(--color-rust-soft);
@@ -2365,7 +2424,7 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 /* Made-by badge - copied from the KSWD sample implementation */
 .site-footer__badge {
   --badge-orbit-duration: 6.8s;
-  --badge-orbit-thickness: 1px;
+  --badge-orbit-thickness: 2px;
   --badge-trace-length: 8;
   --badge-trace-opacity: 0.67;
   --badge-rail: color-mix(in srgb, #ffffff 90%, #1f1a16 10%);
@@ -2506,6 +2565,41 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   border-color: var(--color-rust-soft);
   background: var(--color-rust-dark);
   color: var(--color-ivory);
+}
+
+.lightbox__nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid oklch(98.5% 0.008 80 / 0.3);
+  border-radius: 50%;
+  background: oklch(20% 0.010 62 / 0.5);
+  color: var(--color-ivory);
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.lightbox__nav[hidden] {
+  display: none;
+}
+
+.lightbox__nav:hover,
+.lightbox__nav:focus-visible {
+  border-color: var(--color-rust-soft);
+  background: var(--color-rust-dark);
+}
+
+.lightbox__nav--prev {
+  left: max(16px, env(safe-area-inset-left));
+}
+
+.lightbox__nav--next {
+  right: max(16px, env(safe-area-inset-right));
 }
 
 [data-reveal] {

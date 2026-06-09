@@ -9,14 +9,15 @@
         <span class="site-logo__text">HandwerksPartner<span>24</span></span>
       </a>
       <p>{{ biz.tagline }}</p>
-      <p class="site-footer__small">Persönlicher Kontakt: Renzo Guggisberg, {{ biz.postal_city }}.</p>
     </div>
 
     <nav class="site-footer__col" aria-label="Footer Navigation">
       <h2>Navigation</h2>
       <ul>
         {% for item in site.data.navigation.footer %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {% assign is_current = false %}
+          {% if item.url == "/" and page.url == "/" %}{% assign is_current = true %}{% elsif item.url != "/" and page.url contains item.url %}{% assign is_current = true %}{% endif %}
+          <li><a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
         {% endfor %}
       </ul>
     </nav>
@@ -25,7 +26,7 @@
       <h2>Leistungen</h2>
       <ul>
         {% for service in site.data.services.items %}
-          <li><a href="{{ service.url | relative_url }}">{{ service.nav_title }}</a></li>
+          <li><a href="{{ service.url | relative_url }}"{% if page.url contains service.url %} aria-current="page"{% endif %}>{{ service.nav_title }}</a></li>
         {% endfor %}
       </ul>
     </nav>
@@ -33,6 +34,7 @@
     <div class="site-footer__col">
       <h2>Kontakt</h2>
       <ul>
+        <li>Persönlicher Kontakt: {{ biz.owner }}</li>
         <li><a href="tel:{{ biz.phone_tel }}">{{ biz.phone }}</a></li>
         <li><a href="mailto:{{ biz.email }}">{{ biz.email }}</a></li>
         <li>{{ biz.street }}, {{ biz.postal_city }}</li>

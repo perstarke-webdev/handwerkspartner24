@@ -14,7 +14,11 @@ layout: default
         {% else %}
           <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen{% include icon.html name="arrow-right" size=17 %}</a>
         {% endif %}
+        {% if page.hero_secondary_url %}
+        <a class="button button--secondary{% if page.hero_tone == 'dark' %} button--on-dark{% endif %}" href="{{ page.hero_secondary_url | relative_url }}">{{ page.hero_secondary_label }}{% include icon.html name="arrow-right" size=17 %}</a>
+        {% else %}
         <a class="button button--secondary{% if page.hero_tone == 'dark' %} button--on-dark{% endif %}" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=17 %}Anrufen</a>
+        {% endif %}
       </div>
     </div>
     {% if page.hero_image %}

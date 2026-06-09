@@ -13,7 +13,11 @@ layout: default
       <p class="lead">{{ service.hero_text }}</p>
       <div class="hero__actions">
         <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">{{ service.cta }}{% include icon.html name="arrow-right" size=17 %}</a>
+        {% if service.secondary_url %}
+        <a class="button button--secondary" href="{{ service.secondary_url | relative_url }}">{{ service.secondary_label }}{% include icon.html name="arrow-right" size=17 %}</a>
+        {% else %}
         <a class="button button--secondary" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=17 %}Anrufen</a>
+        {% endif %}
       </div>
     </div>
     <figure class="service-hero__media" data-reveal>

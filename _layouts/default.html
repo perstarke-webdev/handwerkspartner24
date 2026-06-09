@@ -8,8 +8,10 @@
       {{ content }}
     </main>
     {% include site-footer.html %}
-    <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Projektbild">
-      <button class="lightbox__close" type="button" data-lightbox-close aria-label="Bild schliessen">{% include icon.html name="x" size=22 %}</button>
+    <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Projektbilder">
+      <button class="lightbox__close" type="button" data-lightbox-close aria-label="Galerie schliessen">{% include icon.html name="x" size=22 %}</button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev aria-label="Vorheriges Bild" hidden>{% include icon.html name="arrow-left" size=24 %}</button>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="Nächstes Bild" hidden>{% include icon.html name="arrow-right" size=24 %}</button>
       <figure>
         <img alt="" data-lightbox-image>
         <figcaption data-lightbox-caption></figcaption>

@@ -25,10 +25,10 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
     <div class="hero__content">
       <p class="eyebrow eyebrow--light">HandwerksPartner24 · {{ biz.postal_city }}</p>
       <h1>Handwerk mit Haltung, <span class="hero__highlight">persönlich und verlässlich.</span></h1>
-      <p class="lead">Ob Katzennetz, Hauswartung, technischer Dienst, Küchenmontage oder kleinere Sanierung. Sie zeigen uns, worum es geht. Wir schauen uns Material, Zugang und Aufwand an und sagen Ihnen klar, was es kostet.</p>
+      <p class="lead">Ob Katzennetz, Hauswartung, technischer Dienst, Küchenmontage oder kleinere Sanierung. Sie zeigen uns, worum es geht. Wir schauen uns Material, Zugang und Aufwand an und melden uns mit einem klaren Vorschlag.</p>
       <div class="hero__actions">
         <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen{% include icon.html name="arrow-right" size=17 %}</a>
-        <a class="button button--secondary button--on-dark" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=17 %}Anrufen</a>
+        <a class="button button--secondary button--on-dark" href="{{ '/leistungen/' | relative_url }}">Leistungen ansehen{% include icon.html name="arrow-right" size=17 %}</a>
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
     <div class="section__head" data-reveal>
       <p class="eyebrow">Leistungen</p>
       <h2>Was wir für Sie übernehmen.</h2>
-      <p class="lead">Wählen Sie den Bereich, der Ihrer Situation am nächsten kommt. Wenn mehrere Themen zusammengehören, beschreiben Sie die Aufgabe kurz, wir ordnen den Umfang beim ersten Kontakt ein.</p>
+      <p class="lead">Hier finden Sie die Bereiche, die zu Ihrem Anliegen passen.</p>
     </div>
     <div class="services-grid services-grid--home">
       {% for service in services %}
@@ -98,7 +98,7 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
     <div class="section__head" data-reveal>
       <p class="eyebrow">Einblicke</p>
       <h2>Arbeiten, die bereits umgesetzt wurden.</h2>
-      <p class="lead">Beispiele aus Bad, Umbau, Garten und weiteren Arbeiten zeigen, wie unterschiedliche Aufträge praktisch umgesetzt wurden.</p>
+      <p class="lead">Hier sehen Sie, wie wir unterschiedliche Aufträge aus Bad, Umbau, Garten und weiteren Arbeiten umgesetzt haben.</p>
     </div>
     {% include project-gallery.html projects=site.data.projects.items limit=4 %}
     <div class="section-actions section-actions--center" data-reveal>
@@ -116,8 +116,8 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
     <div class="about-preview__copy" data-reveal>
       <p class="eyebrow">Wer dahinter steht</p>
       <h2>Renzo Guggisberg</h2>
-      <p>Bei HandwerksPartner24 haben Sie direkt mit Renzo Guggisberg zu tun. Er verbindet Schreinerhandwerk, Hauswartung mit eidgenössischem Fachausweis und technische Übersicht, damit Arbeiten sauber geklärt, koordiniert und umgesetzt werden.</p>
-      <p>Seine Erfahrung reicht von Schreinermontage über Hausdienst und technischen Dienst bis zu Bau, Sicherheit und Betriebsleitung.</p>
+      <p>Bei HandwerksPartner24 haben Sie direkt mit mir zu tun. Ich verbinde Schreinerhandwerk, Hauswartung mit eidgenössischem Fachausweis und technische Übersicht, damit Ihre Arbeiten sauber geklärt, koordiniert und umgesetzt werden.</p>
+      <p>Meine Erfahrung reicht von der Schreinermontage über Hausdienst und technischen Dienst bis zu Bau, Sicherheit und Betriebsleitung.</p>
       <div class="credential-grid">
         {% for item in site.data.site.credentials %}
           <article>
@@ -132,6 +132,6 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
 </section>
 <!-- /COMPONENT 8 -->
 
-{% include faq.html items=site.data.site.home_faq tone="stone" title="Was vor der ersten Anfrage wichtig ist." text="Ein kurzer Überblick, wie Anfrage, Klärung und Offerte bei HandwerksPartner24 ablaufen." %}
+{% include faq.html items=site.data.site.home_faq tone="stone" title="Was vor der ersten Anfrage wichtig ist." text="Ein kurzer Überblick, wie Anfrage, Klärung und Offerte bei uns ablaufen." %}
 
 {% include closing-cta.html %}
