@@ -261,29 +261,17 @@ p + p {
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
   margin-bottom: var(--eyebrow-gap);
-  color: var(--color-rust-dark);
+  color: var(--color-rust);
   font-size: var(--text-label);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: 0;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 0.54rem;
-  height: 0.54rem;
-  border-radius: 999px;
-  background: var(--color-rust);
+  text-transform: uppercase;
 }
 
 .eyebrow--light {
   color: var(--color-rust-soft);
-}
-
-.eyebrow--light::before {
-  background: var(--color-rust-soft);
 }
 
 .icon {
@@ -2325,7 +2313,7 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   list-style: none;
 }
 
-.site-footer a:not(.site-footer__badge) {
+.site-footer a:not(.site-footer__badge):not(.site-footer__logo) {
   color: oklch(98.5% 0.008 80 / 0.72);
   text-decoration: none;
 }
@@ -2338,8 +2326,8 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   overflow-wrap: anywhere;
 }
 
-.site-footer a:not(.site-footer__badge):hover,
-.site-footer a:not(.site-footer__badge):focus-visible {
+.site-footer a:not(.site-footer__badge):not(.site-footer__logo):hover,
+.site-footer a:not(.site-footer__badge):not(.site-footer__logo):focus-visible {
   color: var(--color-rust-soft);
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -2347,7 +2335,16 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 
 .site-footer__logo:hover,
 .site-footer__logo:focus-visible {
+  color: var(--color-rust-soft);
   text-decoration: none;
+}
+
+.site-footer__logo:hover .brand-mark,
+.site-footer__logo:focus-visible .brand-mark {
+  border-color: var(--color-rust-line);
+  background: var(--color-rust-wash);
+  box-shadow: 0 10px 24px oklch(20% 0.010 62 / 0.18);
+  transform: translateY(-1px);
 }
 
 .site-footer__bottom {
