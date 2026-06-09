@@ -23,7 +23,7 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
   <div class="hero__shade" aria-hidden="true"></div>
   <div class="shell hero__inner">
     <div class="hero__content">
-      <p class="eyebrow eyebrow--light">HandwerksPartner24 · {{ biz.postal_city }}</p>
+      <p class="eyebrow eyebrow--light">HandwerksPartner24 · Heimberg, Schweiz</p>
       <h1>Handwerk mit Haltung, <span class="hero__highlight">persönlich und verlässlich.</span></h1>
       <p class="lead">Ob Katzennetz, Hauswartung, technischer Dienst, Küchenmontage oder kleinere Sanierung. Sie zeigen uns, worum es geht. Wir schauen uns Material, Zugang und Aufwand an und melden uns mit einem klaren Vorschlag.</p>
       <div class="hero__actions">
@@ -83,7 +83,7 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
       <ul class="check-list">
         <li>{% include icon.html name="check" size=17 %}<span>Welche Leistung gebraucht wird</span></li>
         <li>{% include icon.html name="check" size=17 %}<span>Was vor Ort bereits vorhanden ist</span></li>
-        <li>{% include icon.html name="check" size=17 %}<span>Ob Fotos reichen oder eine Besichtigung nötig ist</span></li>
+        <li>{% include icon.html name="check" size=17 %}<span>Ob Fotos reichen oder eine Besichtigung hilfreich ist</span></li>
         <li>{% include icon.html name="check" size=17 %}<span>Welche Arbeit in die Offerte gehört</span></li>
       </ul>
     </div>
@@ -121,7 +121,6 @@ description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartunge
       <div class="credential-grid">
         {% for item in site.data.site.credentials %}
           <article>
-            <span>{{ item.label }}</span>
             <strong>{{ item.value }}</strong>
           </article>
         {% endfor %}
