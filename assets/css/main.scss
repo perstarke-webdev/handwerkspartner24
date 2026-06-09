@@ -1473,7 +1473,7 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 }
 
 .about-page {
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(340px, 1fr);
   align-items: start;
 }
 
@@ -1518,7 +1518,9 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   border: 1px solid color-mix(in oklch, var(--color-sage) 14%, var(--color-line));
   border-radius: var(--radius-card);
   background: oklch(48% 0.078 126 / 0.05);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .credential-grid article:nth-child(2) {
@@ -1549,7 +1551,9 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   display: block;
   color: var(--color-ink);
   line-height: 1.25;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .faq-layout {

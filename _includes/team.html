@@ -24,11 +24,11 @@
       </div>
       {% if team.duo %}
         <div class="team-duo" data-reveal>
+          <p class="team-duo__label">Aus dem Büroalltag</p>
           <figure class="team-snapshot">
             <img src="{{ team.duo.image | relative_url }}" alt="{{ team.duo.image_alt | escape }}" loading="lazy" decoding="async">
             <figcaption>{{ team.duo.caption }}</figcaption>
           </figure>
-          <p class="team-duo__label">Aus dem Büroalltag</p>
         </div>
       {% endif %}
     </div>
