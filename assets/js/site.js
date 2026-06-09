@@ -254,7 +254,11 @@
 
   const lightbox = document.querySelector("[data-lightbox]");
   const lightboxImage = document.querySelector("[data-lightbox-image]");
-  const lightboxCaption = document.querySelector("[data-lightbox-caption]");
+  // Scope to the lightbox: the gallery trigger buttons ALSO carry
+  // data-lightbox-caption (as the caption source), so an unscoped query would
+  // grab the first thumbnail button and renderLightboxImage would overwrite
+  // its <img> with the caption text.
+  const lightboxCaption = lightbox ? lightbox.querySelector("[data-lightbox-caption]") : null;
   const lightboxClose = document.querySelector("[data-lightbox-close]");
   let lastLightboxTrigger = null;
   const lightboxFocusableSelector = "a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex='-1'])";
@@ -306,16 +310,22 @@
       ? Array.from(groupRoot.querySelectorAll("[data-lightbox-src]"))
       : [trigger];
     lightboxIndex = Math.max(0, lightboxGroup.indexOf(trigger));
-    renderLightboxImage();
+    // Reveal the container FIRST, then set the image source. Setting src while
+    // the container is display:none can leave the image unpainted on iOS Safari
+    // (the reported "first photo shows alt text" bug).
     lightbox.hidden = false;
     doc.classList.add("has-lightbox-open");
+    renderLightboxImage();
     if (lightboxClose) lightboxClose.focus();
   };
 
   const closeLightbox = () => {
     if (!lightbox || !lightboxImage) return;
+    // Note: we deliberately do NOT clear lightboxImage.src here. The viewer and
+    // the gallery thumbnail reference the same file, and clearing the src made
+    // the browser drop the shared decoded image — which blanked the thumbnail
+    // that had just been opened. Leaving it loaded keeps both intact.
     lightbox.hidden = true;
-    lightboxImage.src = "";
     doc.classList.remove("has-lightbox-open");
     if (lastLightboxTrigger) lastLightboxTrigger.focus();
   };

@@ -74,7 +74,8 @@ items:
   - slug: "diverse-arbeiten"
     title: "Weitere Handwerksarbeiten"
     summary: "Montagen, Reparaturen und praktische Arbeiten, die vor der Offerte kurz eingeordnet werden."
-    service_url: "/kontakt/"
+    service_url: "/leistungen/"
+    service_label: "Alle Leistungen ansehen"
     images:
       - src: "/assets/images/projects/diverse/diverse-01.webp"
         alt: "Weitere handwerkliche Arbeiten von HandwerksPartner24"

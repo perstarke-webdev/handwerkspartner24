@@ -1422,6 +1422,9 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 
 .project-card__images.project-card__images--single {
   grid-template-columns: 1fr;
+  /* Match the height of a 4-across image row so single-image projects
+     don't render taller than the others. */
+  grid-template-rows: 280px;
 }
 
 .project-thumb {
@@ -1959,6 +1962,10 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   background: var(--color-stone);
 }
 
+.partner-band h2 {
+  margin-bottom: 0.55rem;
+}
+
 .partner-band p {
   max-width: var(--measure-copy);
   color: var(--color-muted);
@@ -2281,7 +2288,11 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   flex: 0 0 auto;
   width: 18px;
   height: 18px;
-  margin-top: 0.18rem;
+  /* The general .form input rule gives fields min-height:48px + padding; reset
+     that here so the checkbox is a true 18px box that sits on the first line. */
+  min-height: 0;
+  padding: 0;
+  margin: 1px 0 0;
 }
 
 .form__checkbox a {
@@ -3292,6 +3303,10 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 
   .project-card__images {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card__images.project-card__images--single {
+    grid-template-rows: 341px;
   }
 
   .project-thumb img {

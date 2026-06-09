@@ -253,12 +253,12 @@ items:
     hero_title: "Küchenmontage mit persönlicher Koordination."
     hero_text: "HandwerksPartner24 unterstützt bei Küchenprojekten von der Montage bis zur Übergabe. Je nach Umfang arbeiten wir mit unserem Küchenpartner zusammen, damit Planung, Montage und Verantwortung klar verteilt sind."
     detail_title: "Ein persönlicher Kontakt mit klarer Partnerrolle."
-    detail_text: "Sie stellen die Anfrage direkt an HandwerksPartner24. Wir klären, was montiert werden soll, welche Vorarbeiten vorhanden sind und welche Aufgaben HandwerksPartner24 oder der Küchenpartner übernehmen."
+    detail_text: "Sie stellen die Anfrage direkt an HandwerksPartner24. Wir klären, was montiert werden soll, welche Vorarbeiten vorhanden sind und welche Aufgaben wir selbst und welche unser vertrauter Küchenpartner übernehmen."
     bullets_title: "Typische Arbeiten"
     bullets:
       - "Aufbau und Ausrichten von Küchenmöbeln"
       - "Montagearbeiten rund um Korpus, Sockel und Abschlüsse"
-      - "Koordination mit dem Küchenpartner"
+      - "Koordination mit unserem Küchenpartner"
       - "Übergabe mit Funktionscheck nach Absprache"
     fit_title: "Geeignet für"
     fit:
@@ -282,7 +282,7 @@ items:
         text: "Sie nennen, was montiert werden soll, welche Unterlagen vorhanden sind und wann die Küche gebraucht wird."
       - number: "02"
         title: "Rollen klären"
-        text: "Wir besprechen, welche Aufgaben HandwerksPartner24 übernimmt und wo der Küchenpartner dazukommt."
+        text: "Wir besprechen, welche Aufgaben wir selbst übernehmen und wo unser Küchenpartner dazukommt."
       - number: "03"
         title: "Offerte erhalten"
         text: "Sie erhalten ein Angebot für Montage, Koordination und die besprochenen Partnerleistungen."
