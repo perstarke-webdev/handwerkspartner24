@@ -1,0 +1,35 @@
+---
+layout: legal
+title: "Impressum"
+heading: "Impressum"
+description: "Impressum mit Kontakt, Adresse und MWST-Angaben von HandwerksPartner24 in Heimberg."
+permalink: /impressum/
+---
+{% assign biz = site.data.site.business %}
+
+<h2>Angaben zum Unternehmen</h2>
+<p>
+  <strong>HandwerksPartner24</strong><br>
+  Inhaber: Renzo Guggisberg<br>
+  {{ biz.street }}<br>
+  {{ biz.postal_city }}<br>
+  {{ biz.country }}
+</p>
+
+<h2>Kontakt</h2>
+<div class="legal-contact-list">
+  <a href="tel:{{ biz.phone_tel }}">Telefon: {{ biz.phone }}</a>
+  <a href="mailto:{{ biz.email }}">E-Mail: {{ biz.email }}</a>
+</div>
+
+<h2>Mehrwertsteuer</h2>
+<p>MWST: {{ biz.vat }}</p>
+
+<h2>Verantwortlich für den Inhalt</h2>
+<p>Renzo Guggisberg, HandwerksPartner24.</p>
+
+<h2>Haftungsausschluss</h2>
+<p>Die Inhalte dieser Website werden sorgfältig erstellt. Für die Vollständigkeit, Richtigkeit und Aktualität der Inhalte kann dennoch keine Gewähr übernommen werden.</p>
+
+<h2>Urheberrecht</h2>
+<p>Die auf dieser Website verwendeten Texte, Bilder und Gestaltungselemente sind urheberrechtlich geschützt. Eine Verwendung ausserhalb der gesetzlich erlaubten Nutzung benötigt eine vorgängige Zustimmung.</p>

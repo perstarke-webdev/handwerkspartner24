@@ -1,0 +1,23 @@
+{% assign projects = include.projects | default: site.data.projects.items %}
+{% assign gallery_limit = include.limit | default: projects.size %}
+<!-- COMPONENT 7: Project gallery / curated proof grid -->
+<div class="project-grid" data-project-gallery>
+  {% for project in projects limit: gallery_limit %}
+    <article class="project-card" id="{{ project.slug }}" data-reveal>
+      <div class="project-card__copy">
+        <p class="project-card__meta">{{ forloop.index | prepend: '0' }}</p>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.summary }}</p>
+        <a class="text-link" href="{{ project.service_url | relative_url }}">Passende Leistung ansehen{% include icon.html name="arrow-right" size=16 %}</a>
+      </div>
+      <div class="project-card__images{% if project.images.size == 1 %} project-card__images--single{% endif %}" aria-label="Bilder zu {{ project.title }}">
+        {% for image in project.images %}
+          <button class="project-thumb" type="button" aria-label="{{ image.alt | escape }} vergrössern" data-lightbox-src="{{ image.src | relative_url }}" data-lightbox-alt="{{ image.alt | escape }}" data-lightbox-caption="{{ project.title | escape }}">
+            <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
+          </button>
+        {% endfor %}
+      </div>
+    </article>
+  {% endfor %}
+</div>
+<!-- /COMPONENT 7 -->

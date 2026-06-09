@@ -1,0 +1,34 @@
+---
+layout: page
+title: "Kontakt"
+heading: "Offerte anfragen"
+description: "Senden Sie eine Anfrage an HandwerksPartner24 für Katzennetze, Hauswartung, technischen Dienst, Umbauten, Sanierungen oder Küchenmontage."
+permalink: /kontakt/
+eyebrow: "Kontakt"
+lead: "Senden Sie Leistung, Ort und eine kurze Beschreibung. Wir klären offene Fragen, prüfen Fotos oder Besichtigung und erstellen danach die Offerte."
+hero_image: "/assets/images/site/renzo-contact.webp"
+hero_alt: "Renzo Guggisberg von HandwerksPartner24"
+hero_position: "center 36%"
+---
+{% assign biz = site.data.site.business %}
+
+<section class="section section--paper contact-section">
+  <div class="shell contact-grid">
+    <div class="contact-aside" data-reveal>
+      <p class="eyebrow">Direkt erreichbar</p>
+      <h2>Direkt erreichbar.</h2>
+      <div class="contact-list">
+        <a href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=18 %}<span>{{ biz.phone }}</span></a>
+        <a href="mailto:{{ biz.email }}">{% include icon.html name="mail" size=18 %}<span>{{ biz.email }}</span></a>
+        <p>{% include icon.html name="map-pin" size=18 %}<span>{{ biz.street }}<br>{{ biz.postal_city }}<br>{{ biz.country }}</span></p>
+      </div>
+      <p class="contact-aside__note">Nach der Anfrage klären wir den Umfang persönlich. Die Arbeit startet erst nach bestätigter Offerte.</p>
+    </div>
+
+    <div class="form-card" id="offerte" data-reveal>
+      <h2>Anfrage für eine Offerte senden</h2>
+      <p>Beschreiben Sie, welche Arbeit an welchem Ort gemacht werden soll. Wenn Masse, Fotos oder eine Besichtigung nötig sind, melden wir uns persönlich.</p>
+      {% include contact-form.html id_prefix="kontakt" context="kontaktseite" %}
+    </div>
+  </div>
+</section>

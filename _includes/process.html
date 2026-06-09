@@ -1,0 +1,21 @@
+{% assign steps = include.steps | default: site.data.site.process %}
+<!-- COMPONENT 6: Process ladder -->
+<section class="section section--dark" id="{{ include.id | default: 'ablauf' }}">
+  <div class="shell">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow eyebrow--light">Ablauf</p>
+      <h2>{{ include.title | default: "So läuft eine Anfrage ab." }}</h2>
+      {% if include.text %}<p class="lead">{{ include.text }}</p>{% endif %}
+    </div>
+    <div class="process">
+      {% for step in steps %}
+        <article class="process__step" data-reveal>
+          <span>{{ step.number }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 6 -->

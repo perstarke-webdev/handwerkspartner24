@@ -1,0 +1,21 @@
+members:
+  - name: "Renzo Guggisberg"
+    role: "Inhaber"
+    blurb: "Plant, klärt, montiert und übergibt. Der Teil des Teams mit eidgenössischem Fachausweis."
+    image: "/assets/images/site/renzo-portrait.webp"
+    image_alt: "Renzo Guggisberg, Inhaber von HandwerksPartner24"
+  - name: "Tarek"
+    role: "Chef"
+    blurb: "Trägt als Einziger die offizielle HandwerksPartner24-Ausrüstung und überwacht jede Znünipause persönlich. Zuständig für gute Laune und pünktlichen Feierabend."
+    image: "/assets/images/team/tarek.webp"
+    image_alt: "Tarek, der Hund von HandwerksPartner24, mit gebrandetem Geschirr"
+  - name: "Kara"
+    role: "Sekretärin"
+    blurb: "Leitet die Qualitätskontrolle an den Katzennetzen. Prüft jede Lösung gründlich auf Sitz und Bequemlichkeit, bevor sie sie freigibt."
+    image: "/assets/images/team/kara.webp"
+    image_alt: "Kara, die schwarze Katze von HandwerksPartner24, im Garten"
+
+duo:
+  image: "/assets/images/team/tarek-kara.webp"
+  image_alt: "Tarek und Kara von HandwerksPartner24"
+  caption: "Chef und Sekretärin bei der Wochenbesprechung."

@@ -1,0 +1,34 @@
+{% assign team = site.data.team %}
+{% if team.members %}
+  <!-- COMPONENT 12: Team / restrained personality section -->
+  <section class="section section--paper">
+    <div class="shell">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow">Das Team</p>
+        <h2>Nicht ganz allein im Einsatz.</h2>
+        <p class="lead">Bei HandwerksPartner24 arbeiten Sie direkt mit Renzo. Zwei Kollegen lassen es sich allerdings nicht nehmen, den Betrieb zu beaufsichtigen.</p>
+      </div>
+      <div class="team-grid">
+        {% for member in team.members %}
+          <article class="team-card" data-reveal>
+            <figure class="team-card__media">
+              <img src="{{ member.image | relative_url }}" alt="{{ member.image_alt | escape }}" loading="lazy" decoding="async">
+            </figure>
+            <div class="team-card__body">
+              <span class="team-card__role">{{ member.role }}</span>
+              <h3>{{ member.name }}</h3>
+              <p>{{ member.blurb }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+      {% if team.duo %}
+        <figure class="team-duo" data-reveal>
+          <img src="{{ team.duo.image | relative_url }}" alt="{{ team.duo.image_alt | escape }}" loading="lazy" decoding="async">
+          <figcaption>{{ team.duo.caption }}</figcaption>
+        </figure>
+      {% endif %}
+    </div>
+  </section>
+  <!-- /COMPONENT 12 -->
+{% endif %}

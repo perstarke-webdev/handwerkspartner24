@@ -1,0 +1,58 @@
+locale: "de-CH"
+lang: "de-CH"
+title: "HandwerksPartner24"
+description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartungen, technischer Dienst, Küchenmontage und kleinere Umbauten. Offerte anfragen oder direkt anrufen."
+url: "https://handwerkspartner24.kswd-draft.ch"
+production_url: "https://www.handwerkspartner24.ch"
+baseurl: ""
+timezone: Europe/Zurich
+logo: "/assets/images/brand/legacy-logo.webp"
+og_image: "/assets/images/social/og-image.webp"
+noindex_site: true
+
+formspark_endpoint: "https://submit-form.com/qmOOtdX2O"
+
+include:
+  - _pages
+
+exclude:
+  - briefing
+  - Briefing
+  - .impeccable
+  - .agents
+  - PRODUCT.md
+  - DESIGN.md
+  - _site
+  - .jekyll-cache
+  - .sass-cache
+  - .bundle
+  - vendor
+  - node_modules
+  - assets/originals
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - docker-compose.yml
+  - .tmp-validation
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

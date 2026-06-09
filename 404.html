@@ -1,0 +1,17 @@
+---
+layout: default
+title: "Seite nicht gefunden"
+description: "Diese Seite konnte nicht gefunden werden."
+permalink: /404.html
+---
+<section class="section not-found">
+  <div class="shell not-found__inner">
+    <p class="eyebrow">404</p>
+    <h1>Diese Seite wurde nicht gefunden.</h1>
+    <p class="lead">Die Adresse stimmt nicht oder die Seite wurde verschoben. Gehen Sie zur Startseite oder senden Sie direkt eine Anfrage für Ihre Arbeit.</p>
+    <div class="hero__actions">
+      <a class="button button--primary" href="{{ '/' | relative_url }}">Zur Startseite{% include icon.html name="arrow-right" size=17 %}</a>
+      <a class="button button--secondary" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen</a>
+    </div>
+  </div>
+</section>

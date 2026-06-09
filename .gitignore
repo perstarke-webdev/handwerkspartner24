@@ -1,0 +1,15 @@
+/briefing/
+/.impeccable/
+/PRODUCT.md
+/DESIGN.md
+/.agents/context/
+/.agents/PRODUCT.md
+/.agents/DESIGN.md
+/_site/
+/.jekyll-cache/
+/.sass-cache/
+/.bundle/
+/vendor/
+/node_modules/
+/assets/originals/
+/.tmp-validation/

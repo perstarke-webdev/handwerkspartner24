@@ -1,0 +1,64 @@
+{% assign form_id = include.id_prefix | default: "offerte" %}
+<!-- COMPONENT 10: Contact / offer inquiry form -->
+<form class="form" action="{{ site.formspark_endpoint }}" method="POST" data-contact-form data-form-endpoint="{{ site.formspark_endpoint }}">
+  <input type="hidden" name="source" value="{{ include.context | default: page.url }}">
+  <input type="hidden" name="submit_seconds" value="" data-submit-seconds>
+  <div class="visually-hidden" aria-hidden="true">
+    <label for="{{ form_id }}-company">Bitte leer lassen</label>
+    <input id="{{ form_id }}-company" name="_honeypot" type="text" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="form__grid">
+    <div class="form__field">
+      <label for="{{ form_id }}-name">Name</label>
+      <input id="{{ form_id }}-name" name="name" type="text" autocomplete="name" placeholder="Vor- und Nachname" required>
+    </div>
+    <div class="form__field">
+      <label for="{{ form_id }}-email">E-Mail</label>
+      <input id="{{ form_id }}-email" name="email" type="email" autocomplete="email" placeholder="name@example.ch" required>
+    </div>
+    <div class="form__field">
+      <label for="{{ form_id }}-phone">Telefon</label>
+      <input id="{{ form_id }}-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="079 000 00 00">
+    </div>
+    <div class="form__field">
+      <label for="{{ form_id }}-service">Gewünschte Leistung</label>
+      <select id="{{ form_id }}-service" name="service" required>
+        <option value="">Leistung auswählen</option>
+        <option>Katzennetze, Katzentürli & Katzenleitern</option>
+        <option>Hauswartungen</option>
+        <option>Wohnungsaufbereitung</option>
+        <option>Technischer Dienst</option>
+        <option>Umbauten & Sanierungen</option>
+        <option>Küchenmontage</option>
+        <option>Weitere Handwerksarbeiten</option>
+        <option>Noch unsicher, bitte einordnen</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form__field">
+    <label for="{{ form_id }}-place">Ort der Arbeit</label>
+    <input id="{{ form_id }}-place" name="place" type="text" autocomplete="street-address" placeholder="z. B. Heimberg oder Thun">
+  </div>
+
+  <div class="form__field">
+    <label for="{{ form_id }}-message">Beschreibung der Arbeit</label>
+    <textarea id="{{ form_id }}-message" name="message" rows="6" placeholder="Beispiel: Katzennetz für Balkon, ca. 4 m breit, Mietwohnung, Fotos vorhanden. Oder: Badewanne soll durch Dusche ersetzt werden." required></textarea>
+    <p class="form__help">Hilfreich sind Masse, Material, gewünschter Zeitpunkt und ob Fotos vorhanden sind. Fotos können später per E-Mail gesendet werden, falls wir sie brauchen.</p>
+  </div>
+
+  <label class="form__checkbox" for="{{ form_id }}-privacy">
+    <input id="{{ form_id }}-privacy" name="privacy_accepted" type="checkbox" value="yes" required>
+    <span>Ich habe die <a href="{{ '/datenschutz/' | relative_url }}">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.</span>
+  </label>
+
+  <div class="form__submit">
+    <button class="button button--primary button--lg" type="submit" data-submit-label="Anfrage senden">
+      Anfrage senden{% include icon.html name="arrow-right" size=17 %}
+    </button>
+    <p class="form__note">Nach dem Senden prüfen wir Ihre Angaben persönlich und melden uns für Rückfragen, Besichtigung oder Offerte.</p>
+  </div>
+  <p class="form__status" data-form-status aria-live="polite" role="status"></p>
+</form>
+<!-- /COMPONENT 10 -->

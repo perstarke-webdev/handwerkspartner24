@@ -1,0 +1,58 @@
+---
+layout: page
+title: "Leistungen"
+heading: "Leistungen von Handwerks<wbr>Partner24"
+description: "Katzennetze, Hauswartungen, technischer Dienst, Umbauten, Sanierungen und Küchenmontage: wählen Sie die Leistung oder senden Sie eine Anfrage zur Einordnung."
+permalink: /leistungen/
+eyebrow: "Was möglich ist"
+lead: "Ein Ansprechpartner für praktische Arbeiten rund um Zuhause, Liegenschaft und Gebäudeunterhalt. Wählen Sie die nächstliegende Leistung oder senden Sie direkt eine Anfrage."
+hero_image: "/assets/images/site/katzennetz.webp"
+hero_alt: "Katzennetz auf einem Balkon als Beispiel für HandwerksPartner24"
+---
+{% assign services = site.data.services.items %}
+
+<section class="section section--paper">
+  <div class="shell">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Überblick</p>
+      <h2>Was wir für Sie übernehmen.</h2>
+      <p class="lead">Beschreiben Sie, was erledigt werden soll. Wir klären beim ersten Kontakt, welche Arbeiten dazugehören, ob Fotos reichen oder ob eine Besichtigung sinnvoll ist.</p>
+    </div>
+    <div class="services-grid">
+      {% for service in services %}
+        {% include service-card.html service=service featured=forloop.first %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell fit-guide">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Orientierung</p>
+      <h2>Welche Leistung passt?</h2>
+      <p class="lead">Die Auswahl muss nicht perfekt sein. Wichtig sind Ort, Aufgabe und gewünschtes Ergebnis, die genaue Einordnung übernehmen wir mit Ihnen.</p>
+    </div>
+    <div class="fit-guide__grid">
+      <article data-reveal>
+        <h3>Katzen, Balkon oder Fenster</h3>
+        <p>Starten Sie bei Katzennetzen, wenn Balkon, Fenster, Sitzplatz oder Garten gesichert werden sollen.</p>
+      </article>
+      <article data-reveal>
+        <h3>Liegenschaft im Alltag</h3>
+        <p>Starten Sie bei Hauswartungen, wenn Pflege, Kontrolle, kleine Reparaturen, Umgebung oder Wohnungsaufbereitung betreut werden sollen.</p>
+      </article>
+      <article data-reveal>
+        <h3>Technik und Koordination</h3>
+        <p>Starten Sie beim technischen Dienst, wenn Unterhalt, Störungen, Ferienvertretung oder externe Dienstleister koordiniert werden müssen.</p>
+      </article>
+      <article data-reveal>
+        <h3>Umbau, Bad oder Montage</h3>
+        <p>Starten Sie hier, wenn Bad, Küche, Wand, Boden oder Montagearbeiten betroffen sind.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% include faq.html items=site.data.site.home_faq tone="stone" title="Fragen zur Anfrage." %}
+{% include closing-cta.html title="Nicht sicher, welche Leistung passt?" text="Beschreiben Sie Ort, Aufgabe und gewünschtes Ergebnis. Wir ordnen die Anfrage ein und melden uns mit Rückfragen, Besichtigung oder Offerte." %}

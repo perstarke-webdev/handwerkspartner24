@@ -1,0 +1,100 @@
+---
+layout: page
+title: "Über mich"
+heading: "Über Renzo Guggisberg"
+description: "Renzo Guggisberg ist Inhaber von HandwerksPartner24, gelernter Bauschreiner, Hauswart mit eidgenössischem Fachausweis und erfahrener technischer Dienstleister."
+permalink: /ueber-renzo/
+eyebrow: "Wer dahinter steht"
+lead: "Persönlicher Kontakt, Schreinerhandwerk, Hauswartung mit eidgenössischem Fachausweis und Erfahrung in technischem Dienst, Unterhalt und Gebäudebetrieb."
+hero_image: "/assets/images/site/renzo-wide.webp"
+hero_alt: "Renzo Guggisberg, Inhaber von HandwerksPartner24"
+hero_position: "center 34%"
+---
+<!-- COMPONENT 8: Founder/about split -->
+<section class="section section--paper">
+  <div class="shell about-page">
+    <div class="about-page__copy" data-reveal>
+      <p class="eyebrow">Hinter dem Betrieb</p>
+      <h2>Sauberes Handwerk, technische Übersicht und klare Kommunikation.</h2>
+      <p>Bei HandwerksPartner24 sprechen Sie direkt mit Renzo Guggisberg. Er ist gelernter Bauschreiner, Hauswart mit eidgenössischem Fachausweis und bringt langjährige Erfahrung aus Schreinermontage, Hausdienst, technischem Dienst, Bau/Sicherheit und Betriebsleitung mit.</p>
+      <p>Stationen wie BEKB Bern-Bundesplatz, Stiftung Tannacker, Migros Aare, Domicil Bern AG und Stiftung Betagtenheim Schönegg zeigen die Breite seiner Erfahrung: Unterhalt organisieren, technische Themen einordnen, externe Dienstleister koordinieren und Arbeiten zuverlässig übergeben.</p>
+      <p>Diese Mischung prägt die Arbeit von HandwerksPartner24: zuerst sauber klären, dann nachvollziehbar offerieren und erst nach bestätigtem Umfang ausführen.</p>
+    </div>
+    <div class="about-proof" data-reveal>
+      <figure class="about-proof__media">
+        <img src="{{ '/assets/images/services/wohnungsaufbereitung-seftigen.webp' | relative_url }}" alt="Aufbereiteter Innenbereich als Beispiel für sorgfältige Handwerksarbeit" loading="lazy" decoding="async">
+      </figure>
+      <div class="credential-grid credential-grid--large">
+        {% for item in site.data.site.credentials %}
+          <article>
+            <span>{{ item.label }}</span>
+            <strong>{{ item.value }}</strong>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 8 -->
+
+<section class="section section--stone">
+  <div class="shell">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Qualifikationen</p>
+      <h2>Ausbildung und Weiterbildungen, die im Alltag zählen.</h2>
+      <p class="lead">Ausbildung und Weiterbildungen greifen im Alltag ineinander. Sie sind der Grund, warum Arbeiten bei HandwerksPartner24 nicht nur ausgeführt, sondern sauber eingeordnet, koordiniert und verantwortet werden.</p>
+    </div>
+    <div class="work-style__grid">
+      <article data-reveal>
+        <h3>Bauschreiner</h3>
+        <p>Lehre als Bauschreiner Richtung Fenster, mit anschliessender Praxiserfahrung in Montage, Service und AVOR.</p>
+      </article>
+      <article data-reveal>
+        <h3>Eidg. Fachausweis</h3>
+        <p>Hauswart mit eidgenössischem Fachausweis, ergänzt durch Hauswarte-Servicekurs und praktische Gebäudebetreuung.</p>
+      </article>
+      <article data-reveal>
+        <h3>Technik & Sicherheit</h3>
+        <p>Erfahrung als Leiter Technischer Dienst sowie Weiterbildungen in Arbeitssicherheit, Gesundheitsschutz und SiBe Brandschutz.</p>
+      </article>
+      <article data-reveal>
+        <h3>Koordination</h3>
+        <p>Berufsbildner, BLS/AED und institutionelle Erfahrung unterstützen ruhige Kommunikation und klare Zuständigkeiten.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell work-style">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Arbeitsweise</p>
+      <h2>Praktisch, ruhig und mit Verantwortung.</h2>
+      <p class="lead">Vom ersten Gespräch bis zur Übergabe bleibt klar, was gemacht wird, wer zuständig ist und was die nächsten Schritte sind.</p>
+    </div>
+    <div class="work-ladder">
+      <article data-reveal>
+        <span>01</span>
+        <h3>Umfang klären</h3>
+        <p>Eine Arbeit wird zuerst eingeordnet, damit Material, Aufwand und Ausführung zur Situation passen.</p>
+      </article>
+      <article data-reveal>
+        <span>02</span>
+        <h3>Ruhig koordinieren</h3>
+        <p>Bei technischen Themen oder Partnerleistungen werden Zuständigkeiten, Ablauf und Rückfragen vorab geklärt.</p>
+      </article>
+      <article data-reveal>
+        <span>03</span>
+        <h3>Persönlich übergeben</h3>
+        <p>Nach der Arbeit wird erklärt, was gemacht wurde und worauf Sie im Alltag achten sollten.</p>
+      </article>
+      <article data-reveal>
+        <span>04</span>
+        <h3>Nach Offerte arbeiten</h3>
+        <p>Die Ausführung startet erst, wenn Umfang und Kosten nachvollziehbar festgelegt und bestätigt sind.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% include team.html %}
+{% include closing-cta.html title="Arbeit direkt anfragen." text="Beschreiben Sie die Arbeit oder rufen Sie an. Wir klären den Umfang persönlich und melden uns für Rückfragen, Besichtigung oder Offerte." %}

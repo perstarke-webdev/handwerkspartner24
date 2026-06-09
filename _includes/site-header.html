@@ -1,0 +1,57 @@
+{% assign nav = site.data.navigation.primary %}
+{% assign biz = site.data.site.business %}
+<!-- COMPONENT 1: Header / navigation -->
+<header class="site-header" data-site-header>
+  <div class="shell site-header__inner">
+    <a class="site-logo" href="{{ '/' | relative_url }}" aria-label="HandwerksPartner24 - Startseite">
+      {% include brand-mark.html %}
+      <span class="site-logo__text">HandwerksPartner<span>24</span></span>
+    </a>
+
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <ul>
+        {% for item in nav %}
+          {% assign is_current = false %}
+          {% if item.url == "/" and page.url == "/" %}
+            {% assign is_current = true %}
+          {% elsif item.url != "/" and page.url contains item.url %}
+            {% assign is_current = true %}
+          {% endif %}
+          <li><a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="site-header__phone" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=16 %}<span>{{ biz.phone }}</span></a>
+      <a class="button button--primary button--sm" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen{% include icon.html name="arrow-right" size=16 %}</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Navigation öffnen">
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="visually-hidden" data-nav-toggle-label>Navigation öffnen</span>
+      </button>
+    </div>
+  </div>
+
+</header>
+<div class="mobile-nav" id="mobile-nav" data-nav-panel hidden>
+  <nav aria-label="Mobile Navigation">
+    <ul>
+      {% for item in nav %}
+        {% assign is_current = false %}
+        {% if item.url == "/" and page.url == "/" %}
+          {% assign is_current = true %}
+        {% elsif item.url != "/" and page.url contains item.url %}
+          {% assign is_current = true %}
+        {% endif %}
+        <li><a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <div class="mobile-nav__actions">
+    <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen{% include icon.html name="arrow-right" size=16 %}</a>
+    <a class="button button--secondary" href="tel:{{ biz.phone_tel }}">Anrufen</a>
+  </div>
+</div>
+<!-- /COMPONENT 1 -->

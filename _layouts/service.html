@@ -1,0 +1,115 @@
+---
+layout: default
+---
+{% assign service = site.data.services.items | where: "slug", page.service_slug | first %}
+{% assign biz = site.data.site.business %}
+{% assign related_services = site.data.services.items | where_exp: "item", "item.slug != service.slug" %}
+
+<section class="service-hero">
+  <div class="shell service-hero__grid">
+    <div class="service-hero__copy" data-reveal>
+      <a class="back-link" href="{{ '/leistungen/' | relative_url }}">{% include icon.html name="arrow-left" size=16 %}Alle Leistungen</a>
+      <h1>{{ service.hero_title }}</h1>
+      <p class="lead">{{ service.hero_text }}</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">{{ service.cta }}{% include icon.html name="arrow-right" size=17 %}</a>
+        <a class="button button--secondary" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=17 %}Anrufen</a>
+      </div>
+    </div>
+    <figure class="service-hero__media" data-reveal>
+      <img src="{{ service.image | relative_url }}" alt="{{ service.image_alt | default: service.title | escape }}" loading="eager" decoding="async" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+<!-- COMPONENT 5: Service detail split section -->
+<section class="section">
+  <div class="shell service-detail">
+    <div class="service-detail__copy" data-reveal>
+      <p class="eyebrow">Was wir tun</p>
+      <h2>{{ service.detail_title }}</h2>
+      <p>{{ service.detail_text }}</p>
+    </div>
+    <div class="service-detail__list" data-reveal>
+      <h3>{{ service.bullets_title }}</h3>
+      <ul class="check-list">
+        {% for item in service.bullets %}
+          <li>{% include icon.html name="check" size=17 %}<span>{{ item }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 5 -->
+
+<section class="section section--stone">
+  <div class="shell fit-grid">
+    <article class="fit-card" data-reveal>
+      <h2>{{ service.fit_title }}</h2>
+      <ul>
+        {% for item in service.fit %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+    <article class="fit-card fit-card--dark" data-reveal>
+      <h2>{{ service.problems_title }}</h2>
+      <ul>
+        {% for item in service.problems %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+{% if service.mascot %}
+  <section class="section">
+    <div class="shell mascot-panel" data-reveal>
+      <figure class="mascot-panel__media">
+        <img src="{{ service.mascot.image | relative_url }}" alt="{{ service.mascot.image_alt | escape }}" loading="lazy" decoding="async">
+      </figure>
+      <div class="mascot-panel__copy">
+        <p class="eyebrow">{{ service.mascot.eyebrow }}</p>
+        <h2>{{ service.mascot.title }}</h2>
+        <p>{{ service.mascot.text }}</p>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if service.partner %}
+  <section class="section section--stone">
+    <div class="shell partner-band" data-reveal>
+      <div>
+        <p class="eyebrow">Küchenpartner</p>
+        <h2>{{ service.partner.title }}</h2>
+        <p>{{ service.partner.text }}</p>
+      </div>
+      {% if service.partner.url contains "folgt.example" %}
+        <span class="button button--secondary is-disabled" aria-disabled="true">{{ service.partner.label }}</span>
+      {% else %}
+        <a class="button button--secondary" href="{{ service.partner.url }}" target="_blank" rel="noopener noreferrer">{{ service.partner.label }}{% include icon.html name="external-link" size=16 %}</a>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+{% include process.html steps=service.process title=service.process_title %}
+{% include faq.html items=service.faq tone="stone" title="Fragen zu dieser Leistung." %}
+
+<section class="section">
+  <div class="shell">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Weitere Leistungen</p>
+      <h2>Andere passende Leistungen.</h2>
+    </div>
+    <div class="related-grid">
+      {% for item in related_services limit:3 %}
+        {% include service-card.html service=item %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include closing-cta.html title="Passt diese Leistung zu Ihrer Arbeit?" text=service.closing_text %}

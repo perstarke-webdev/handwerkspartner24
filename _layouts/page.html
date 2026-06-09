@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{% assign biz = site.data.site.business %}
+<section class="page-hero{% if page.hero_tone == 'dark' %} page-hero--dark{% endif %}">
+  <div class="shell page-hero__grid{% unless page.hero_image %} page-hero__grid--single{% endunless %}">
+    <div class="page-hero__copy" data-reveal>
+      {% if page.eyebrow %}<p class="eyebrow{% if page.hero_tone == 'dark' %} eyebrow--light{% endif %}">{{ page.eyebrow }}</p>{% endif %}
+      <h1>{{ page.heading | default: page.title }}</h1>
+      {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+      <div class="hero__actions">
+        {% if page.url == "/kontakt/" %}
+          <a class="button button--primary" href="#offerte">Zum Formular{% include icon.html name="arrow-right" size=17 %}</a>
+        {% else %}
+          <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen{% include icon.html name="arrow-right" size=17 %}</a>
+        {% endif %}
+        <a class="button button--secondary{% if page.hero_tone == 'dark' %} button--on-dark{% endif %}" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=17 %}Anrufen</a>
+      </div>
+    </div>
+    {% if page.hero_image %}
+      <figure class="page-hero__media" data-reveal>
+        <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.heading }}" loading="eager" decoding="async" fetchpriority="high"{% if page.hero_position %} style="--image-position: {{ page.hero_position }}"{% endif %}>
+      </figure>
+    {% endif %}
+  </div>
+</section>
+{{ content }}

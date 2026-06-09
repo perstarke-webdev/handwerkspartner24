@@ -1,0 +1,16 @@
+{% assign biz = site.data.site.business %}
+<!-- COMPONENT 11: Closing CTA -->
+<section class="section section--cta" id="{{ include.id | default: 'offerte' }}">
+  <div class="shell cta-panel" data-reveal>
+    <div>
+      <p class="eyebrow eyebrow--light">{{ include.eyebrow | default: "Offerte" }}</p>
+      <h2>{{ include.title | default: "Beschreiben Sie kurz die Arbeit." }}</h2>
+      <p>{{ include.text | default: "Sagen Sie uns kurz, worum es geht und wo. Ein paar Sätze reichen für den ersten Schritt, den Rest klären wir gemeinsam." }}</p>
+    </div>
+    <div class="cta-panel__actions">
+      <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen{% include icon.html name="arrow-right" size=17 %}</a>
+      <a class="button button--secondary button--on-dark" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=17 %}Anrufen</a>
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 11 -->

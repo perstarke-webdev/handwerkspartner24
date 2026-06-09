@@ -1,0 +1,137 @@
+---
+layout: default
+title: "Handwerk, Hauswartung & Katzennetze"
+description: "HandwerksPartner24 mit Renzo Guggisberg: Katzennetze, Hauswartungen, technischer Dienst, Küchenmontage und kleinere Umbauten. Anfrage senden, Umfang klären, Offerte erhalten."
+---
+{% assign biz = site.data.site.business %}
+{% assign services = site.data.services.items %}
+
+<!-- COMPONENT 2: Hero / reusable image-text hero -->
+<section class="hero hero--home">
+  <picture class="hero__media">
+    <img
+      src="{{ '/assets/images/site/hero-work-1280.webp' | relative_url }}"
+      srcset="{{ '/assets/images/site/hero-work-640.webp' | relative_url }} 640w, {{ '/assets/images/site/hero-work-960.webp' | relative_url }} 960w, {{ '/assets/images/site/hero-work-1280.webp' | relative_url }} 1280w, {{ '/assets/images/site/hero-work.webp' | relative_url }} 1920w"
+      sizes="100vw"
+      alt="Handwerkliche Arbeit an einer Küchenarmatur"
+      width="1920"
+      height="1200"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high">
+  </picture>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="shell hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow eyebrow--light">HandwerksPartner24 · {{ biz.postal_city }}</p>
+      <h1>Handwerk mit Haltung, <span class="hero__highlight">persönlich und verlässlich.</span></h1>
+      <p class="lead">Ob Katzennetz, Hauswartung, technischer Dienst, Küchenmontage oder kleinere Sanierung. Sie zeigen uns, worum es geht. Wir schauen uns Material, Zugang und Aufwand an und sagen Ihnen klar, was es kostet.</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="{{ '/kontakt/' | relative_url }}">Offerte anfragen{% include icon.html name="arrow-right" size=17 %}</a>
+        <a class="button button--secondary button--on-dark" href="tel:{{ biz.phone_tel }}">{% include icon.html name="phone" size=17 %}Anrufen</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 2 -->
+
+<!-- COMPONENT 3: Trust strip / proof chips -->
+<section class="trust-strip" aria-label="Kurzprofil">
+  <div class="shell trust-strip__inner">
+    <div>
+      <strong>Persönlich</strong>
+      <span>Renzo Guggisberg: gelernter Bauschreiner und Hauswart mit eidg. Fachausweis.</span>
+    </div>
+    <div>
+      <strong>Klare Offerte</strong>
+      <span>Umfang, Material und Kosten werden vor der Ausführung nachvollziehbar festgelegt.</span>
+    </div>
+    <div>
+      <strong>Direkt erreichbar</strong>
+      <span>Fragen direkt besprechen: <a href="tel:{{ biz.phone_tel }}">{{ biz.phone }}</a>.</span>
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 3 -->
+
+<section class="section section--paper" id="leistungen">
+  <div class="shell">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Leistungen</p>
+      <h2>Was wir für Sie übernehmen.</h2>
+      <p class="lead">Wählen Sie den Bereich, der Ihrer Situation am nächsten kommt. Wenn mehrere Themen zusammengehören, beschreiben Sie die Aufgabe kurz, wir ordnen den Umfang beim ersten Kontakt ein.</p>
+    </div>
+    <div class="services-grid services-grid--home">
+      {% for service in services %}
+        {% include service-card.html service=service featured=forloop.first %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENT 5: Service detail split section -->
+<section class="section">
+  <div class="shell split split--offer">
+    <div class="split__copy" data-reveal>
+      <p class="eyebrow">Offerte</p>
+      <h2>Klarer Umfang, klare Offerte.</h2>
+      <p>Gute handwerkliche Arbeit beginnt mit sauberer Klärung. Ort, Material, Zustand und gewünschtes Ergebnis bestimmen, welche Arbeit nötig ist.</p>
+      <p>Darum prüfen wir Ihre Anfrage zuerst persönlich und erstellen danach eine nachvollziehbare Offerte für den vereinbarten Umfang.</p>
+    </div>
+    <div class="split__panel" data-reveal>
+      <h3>Was wir vorab klären</h3>
+      <ul class="check-list">
+        <li>{% include icon.html name="check" size=17 %}<span>Welche Leistung gebraucht wird</span></li>
+        <li>{% include icon.html name="check" size=17 %}<span>Was vor Ort bereits vorhanden ist</span></li>
+        <li>{% include icon.html name="check" size=17 %}<span>Ob Fotos reichen oder eine Besichtigung nötig ist</span></li>
+        <li>{% include icon.html name="check" size=17 %}<span>Welche Arbeit in die Offerte gehört</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 5 -->
+
+{% include process.html %}
+
+<section class="section section--paper" id="projekte">
+  <div class="shell">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Einblicke</p>
+      <h2>Arbeiten, die bereits umgesetzt wurden.</h2>
+      <p class="lead">Beispiele aus Bad, Umbau, Garten und weiteren Arbeiten zeigen, wie unterschiedliche Aufträge praktisch umgesetzt wurden.</p>
+    </div>
+    {% include project-gallery.html projects=site.data.projects.items limit=4 %}
+    <div class="section-actions section-actions--center" data-reveal>
+      <a class="button button--secondary" href="{{ '/projekte/' | relative_url }}">Alle Projekte ansehen{% include icon.html name="arrow-right" size=17 %}</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENT 8: Founder/about split -->
+<section class="section">
+  <div class="shell about-preview">
+    <figure class="about-preview__media" data-reveal>
+      <img src="{{ '/assets/images/site/renzo-portrait.webp' | relative_url }}" alt="Renzo Guggisberg, Inhaber von HandwerksPartner24" loading="lazy" decoding="async">
+    </figure>
+    <div class="about-preview__copy" data-reveal>
+      <p class="eyebrow">Wer dahinter steht</p>
+      <h2>Renzo Guggisberg</h2>
+      <p>Bei HandwerksPartner24 haben Sie direkt mit Renzo Guggisberg zu tun. Er verbindet Schreinerhandwerk, Hauswartung mit eidgenössischem Fachausweis und technische Übersicht, damit Arbeiten sauber geklärt, koordiniert und umgesetzt werden.</p>
+      <p>Seine Erfahrung reicht von Schreinermontage über Hausdienst und technischen Dienst bis zu Bau, Sicherheit und Betriebsleitung.</p>
+      <div class="credential-grid">
+        {% for item in site.data.site.credentials %}
+          <article>
+            <span>{{ item.label }}</span>
+            <strong>{{ item.value }}</strong>
+          </article>
+        {% endfor %}
+      </div>
+      <a class="text-link" href="{{ '/ueber-renzo/' | relative_url }}">Mehr über mich{% include icon.html name="arrow-right" size=16 %}</a>
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 8 -->
+
+{% include faq.html items=site.data.site.home_faq tone="stone" title="Was vor der ersten Anfrage wichtig ist." text="Ein kurzer Überblick, wie Anfrage, Klärung und Offerte bei HandwerksPartner24 ablaufen." %}
+
+{% include closing-cta.html %}

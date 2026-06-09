@@ -1,0 +1,47 @@
+{% assign items = include.items %}
+<!-- COMPONENT 9: FAQ accordion -->
+<section class="section{% if include.tone == 'stone' %} section--stone{% endif %}" id="{{ include.id | default: 'faq' }}">
+  <div class="shell faq-layout">
+    <div class="section__head faq-layout__head" data-reveal>
+      <p class="eyebrow">{{ include.eyebrow | default: "Häufige Fragen" }}</p>
+      <h2>{{ include.title | default: "Antworten zur Anfrage." }}</h2>
+      {% if include.text %}<p class="lead">{{ include.text }}</p>{% endif %}
+    </div>
+    <div class="faq-list" data-faq-list>
+      {% for item in items %}
+        <details class="faq-item" data-reveal>
+          <summary>
+            <span>{{ item.question }}</span>
+            {% include icon.html name="chevron-down" size=18 %}
+          </summary>
+          <div class="faq-item__answer">
+            <div class="faq-item__answer-inner">
+              <p>{{ item.answer }}</p>
+            </div>
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% if items %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for item in items %}
+          {
+            "@type": "Question",
+            "name": {{ item.question | jsonify }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ item.answer | strip_html | jsonify }}
+            }
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  </script>
+{% endif %}
+<!-- /COMPONENT 9 -->
