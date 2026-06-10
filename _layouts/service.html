@@ -90,10 +90,10 @@ layout: default
         <h2>{{ service.partner.title }}</h2>
         <p>{{ service.partner.text }}</p>
       </div>
-      {% if service.partner.url contains "folgt.example" %}
-        <span class="button button--secondary is-disabled" aria-disabled="true">{{ service.partner.label }}</span>
-      {% else %}
+      {% if service.partner.url contains "://" %}
         <a class="button button--secondary" href="{{ service.partner.url }}" target="_blank" rel="noopener noreferrer">{{ service.partner.label }}{% include icon.html name="external-link" size=16 %}</a>
+      {% else %}
+        <a class="button button--secondary" href="{{ service.partner.url | relative_url }}">{{ service.partner.label }}{% include icon.html name="arrow-right" size=16 %}</a>
       {% endif %}
     </div>
   </section>

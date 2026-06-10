@@ -1083,7 +1083,6 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 .service-card:focus-within {
   border-color: var(--color-rust-line);
   box-shadow: var(--shadow-lift);
-  transform: translateY(-2px);
 }
 
 .service-card--featured {
@@ -1971,6 +1970,92 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   color: var(--color-muted);
 }
 
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  transition: transform 250ms var(--ease-out), box-shadow 250ms var(--ease-out);
+}
+
+.partner-card:hover,
+.partner-card:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -22px oklch(20% 0.010 62 / 0.32);
+}
+
+/* "Rost-Faden": a fine rust thread along the top edge that wanders
+   left -> centre -> right across the three cards. */
+.partner-card__thread {
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-rust) 0%, var(--color-rust) 34%, var(--color-line) 34%);
+}
+
+.partner-card:nth-child(2) .partner-card__thread {
+  background: linear-gradient(90deg, var(--color-line) 0%, var(--color-line) 33%, var(--color-rust) 33%, var(--color-rust) 67%, var(--color-line) 67%);
+}
+
+.partner-card:nth-child(3) .partner-card__thread {
+  background: linear-gradient(90deg, var(--color-line) 0%, var(--color-line) 66%, var(--color-rust) 66%);
+}
+
+.partner-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.55rem;
+  padding: var(--space-md);
+}
+
+.partner-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0.45rem;
+  padding: 1rem;
+  border: 1px dashed color-mix(in oklch, var(--color-line) 86%, var(--color-muted));
+  border-radius: var(--radius-button);
+  background: var(--color-ivory);
+}
+
+.partner-card__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.partner-card__logo-placeholder {
+  color: var(--color-muted);
+  font-size: var(--text-label);
+  font-weight: 700;
+}
+
+.partner-card h3 {
+  font-size: var(--text-title);
+}
+
+.partner-card p {
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+/* Layout only — visual style + the Safari-stable arrow-slide-on-hover come
+   from the shared .text-link rules, identical to the kitchen-partner button. */
+.partner-card__link {
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
 .button[aria-disabled="true"],
 .button.is-disabled {
   cursor: default;
@@ -2721,9 +2806,17 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
+/* Entrance has played: hand hover interactions back to the snappy base timing
+   so lifts respond immediately instead of inheriting the slow reveal curve. */
+.motion-enabled [data-reveal].is-revealed {
+  transition: border-color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+  transition-delay: 0ms;
+}
+
 .motion-enabled [data-reveal].is-visible:is(
-  .service-card:hover,
-  .service-card:focus-within,
   .project-card:hover,
   .project-card:focus-within,
   .fit-card:hover,
@@ -2734,6 +2827,8 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
   .work-style__grid article:focus-within,
   .work-ladder article:hover,
   .work-ladder article:focus-within,
+  .process__step:hover,
+  .process__step:focus-within,
   .team-card:hover,
   .team-card:focus-within
 ) {
@@ -3088,6 +3183,12 @@ main :where(p, li) a:not(.button):not(.text-link):focus-visible {
 
   .team-snapshot {
     max-width: 420px;
+  }
+}
+
+@media (max-width: 760px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
   }
 }
 

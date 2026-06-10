@@ -1,0 +1,39 @@
+{% assign partners = include.partners | default: site.data.partners.items %}
+{% if partners and partners.size > 0 %}
+<!-- COMPONENT 13: Partner showcase -->
+<section class="section{% if include.tone == 'stone' %} section--stone{% endif %}" id="{{ include.id | default: 'partner' }}">
+  <div class="shell">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">{{ include.eyebrow | default: "Partner" }}</p>
+      <h2>{{ include.title | default: "Unsere Partner." }}</h2>
+      {% if include.text %}<p class="lead">{{ include.text }}</p>{% endif %}
+    </div>
+    <div class="partners-grid">
+      {% for partner in partners %}
+        <article class="partner-card" data-reveal>
+          <span class="partner-card__thread" aria-hidden="true"></span>
+          <div class="partner-card__body">
+            <div class="partner-card__logo">
+              {% if partner.logo and partner.logo != "" %}
+                <img src="{{ partner.logo | relative_url }}" alt="{{ partner.name | escape }}" loading="lazy" decoding="async">
+              {% else %}
+                <span class="partner-card__logo-placeholder">Logo folgt</span>
+              {% endif %}
+            </div>
+            <h3>{{ partner.name }}</h3>
+            {% if partner.blurb %}<p>{{ partner.blurb }}</p>{% endif %}
+            {% if partner.url and partner.url != "" %}
+              {% if partner.url contains "://" %}
+                <a class="text-link partner-card__link" href="{{ partner.url }}" target="_blank" rel="noopener noreferrer">{{ partner.label | default: "Zur Website" }}{% include icon.html name="external-link" size=16 %}</a>
+              {% else %}
+                <a class="text-link partner-card__link" href="{{ partner.url | relative_url }}">{{ partner.label | default: "Mehr erfahren" }}{% include icon.html name="arrow-right" size=16 %}</a>
+              {% endif %}
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- /COMPONENT 13 -->
+{% endif %}

@@ -1,0 +1,18 @@
+# Partner showcase for the Leistungen page.
+# Placeholders until real partners are confirmed. To go live, fill in name,
+# blurb and (optionally) logo + url + label per entry. A logo is shown when
+# `logo` points to an image; otherwise a "Logo folgt" placeholder tile renders.
+# A link only appears when `url` is set; while it contains "folgt.example" it
+# renders as a disabled "Link folgt" pill.
+items:
+  - name: "Partnername folgt"
+    blurb: "Kurzbeschreibung folgt."
+    logo: ""
+    url: "/"
+    label: "Link folgt"
+  - name: "Partnername folgt"
+    blurb: "Kurzbeschreibung folgt."
+    logo: ""
+  - name: "Partnername folgt"
+    blurb: "Kurzbeschreibung folgt."
+    logo: ""

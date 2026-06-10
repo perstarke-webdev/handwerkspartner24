@@ -61,7 +61,7 @@ items:
       - question: "Können auch Katzentürli oder Leitern umgesetzt werden?"
         answer: "Ja. Katzentürli und Katzenleitern können Teil der Lösung sein, wenn die bauliche Situation dafür passt."
       - question: "Ist das auch für Mietwohnungen möglich?"
-        answer: "Das hängt von Befestigung und Vorgaben der Verwaltung oder Eigentümerschaft ab. Wir klären die technische Seite, Sie klären die Erlaubnis."
+        answer: "Das hängt von Befestigung und Vorgaben der Verwaltung oder Eigentümerschaft ab. Wir klären die technische Seite und unterstützen Sie bei Bedarf beim Klären der Erlaubnis."
 
   - slug: "hauswartungen"
     title: "Hauswartungen"
@@ -273,7 +273,7 @@ items:
     partner:
       title: "Küchenprojekte mit unserem Küchenpartner [Name folgt]."
       text: "Küchenprojekte setzen wir je nach Umfang gemeinsam mit unserem Küchenpartner um. HandwerksPartner24 bleibt Ihr direkter Kontakt für Anfrage, Rückfragen und Koordination."
-      url: "https://partner-link-folgt.example"
+      url: "/"
       label: "Partnerprofil folgt"
     process_title: "So wird die Küchenmontage koordiniert."
     process:

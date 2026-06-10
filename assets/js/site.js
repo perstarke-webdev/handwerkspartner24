@@ -98,6 +98,13 @@
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
           el.classList.add("is-visible");
+          // Once the entrance animation has played, drop the stagger delay and
+          // hand transform back to the snappy hover transition.
+          const delay = parseFloat(el.style.getPropertyValue("--reveal-delay")) || 0;
+          window.setTimeout(() => {
+            el.style.removeProperty("--reveal-delay");
+            el.classList.add("is-revealed");
+          }, delay + 700);
         });
       });
     };
