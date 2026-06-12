@@ -5,11 +5,11 @@
 # A link only appears when `url` is set; while it contains "folgt.example" it
 # renders as a disabled "Link folgt" pill.
 items:
-  - name: "Partnername folgt"
-    blurb: "Kurzbeschreibung folgt."
-    logo: ""
-    url: "/"
-    label: "Link folgt"
+  - name: "Hunde & Katzencenter Steffisburg GmbH"
+    blurb: "Partnerbetrieb in Steffisburg rund um Hunde und Katzen."
+    logo: "/assets/images/partners/hunde-katzencenter-steffisburg.webp"
+    url: "https://www.hunde-katzencenter.ch"
+    label: "Zur Website"
   - name: "Partnername folgt"
     blurb: "Kurzbeschreibung folgt."
     logo: ""

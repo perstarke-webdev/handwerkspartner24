@@ -13,7 +13,7 @@
         <article class="partner-card" data-reveal>
           <span class="partner-card__thread" aria-hidden="true"></span>
           <div class="partner-card__body">
-            <div class="partner-card__logo">
+            <div class="partner-card__logo{% if partner.logo and partner.logo != "" %} partner-card__logo--image{% endif %}">
               {% if partner.logo and partner.logo != "" %}
                 <img src="{{ partner.logo | relative_url }}" alt="{{ partner.name | escape }}" loading="lazy" decoding="async">
               {% else %}
@@ -24,7 +24,7 @@
             {% if partner.blurb %}<p>{{ partner.blurb }}</p>{% endif %}
             {% if partner.url and partner.url != "" %}
               {% if partner.url contains "://" %}
-                <a class="text-link partner-card__link" href="{{ partner.url }}" target="_blank" rel="noopener noreferrer">{{ partner.label | default: "Zur Website" }}{% include icon.html name="external-link" size=16 %}</a>
+                <a class="text-link partner-card__link" href="{{ partner.url }}" target="_blank" rel="noopener noreferrer">{{ partner.label | default: "Zur Website" }}{% include icon.html name="arrow-right" size=16 %}</a>
               {% else %}
                 <a class="text-link partner-card__link" href="{{ partner.url | relative_url }}">{{ partner.label | default: "Mehr erfahren" }}{% include icon.html name="arrow-right" size=16 %}</a>
               {% endif %}
